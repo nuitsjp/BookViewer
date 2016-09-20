@@ -1,5 +1,7 @@
-﻿using Prism.Unity;
+﻿using BookViewer.Model;
+using Prism.Unity;
 using BookViewer.Views;
+using Microsoft.Practices.Unity;
 
 namespace BookViewer
 {
@@ -17,6 +19,8 @@ namespace BookViewer
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<MainPage>();
+
+            Container.RegisterType<IBook, Book>(new ContainerControlledLifetimeManager());
         }
     }
 }

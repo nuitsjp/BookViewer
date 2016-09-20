@@ -5,8 +5,7 @@ namespace BookViewer.Model
 {
     public interface IChapter : INotifyPropertyChanged
     {
-        string Name { get; }
-        IPage CurrentPage { get; set; }
-        IList<IPage> Pages { get; set; }
+        string Title { get; }
+        IList<IPage> Pages { get; }
     }
 }

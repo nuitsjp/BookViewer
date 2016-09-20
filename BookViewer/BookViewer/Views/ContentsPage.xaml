@@ -6,5 +6,13 @@
              x:Class="BookViewer.Views.ContentsPage"
              Padding="0,40,0,0"
              Title="Contents">
-
+  <Grid>
+    <ListView ItemsSource="{Binding Chapters}" SelectedItem="{Binding CurrentChapter.Value, Mode=TwoWay}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding Title}"/>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </Grid>
 </ContentPage>
