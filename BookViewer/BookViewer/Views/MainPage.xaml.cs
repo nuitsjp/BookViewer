@@ -1,8 +1,6 @@
-﻿using Xamarin.Forms;
-
-namespace BookViewer.Views
+﻿namespace BookViewer.Views
 {
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage
     {
         public MainPage()
         {

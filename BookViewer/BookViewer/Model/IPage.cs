@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace BookViewer.Model
+﻿namespace BookViewer.Model
 {
     public interface IPage
     {

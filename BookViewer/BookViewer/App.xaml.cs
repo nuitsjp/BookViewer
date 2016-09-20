@@ -5,7 +5,7 @@ using Microsoft.Practices.Unity;
 
 namespace BookViewer
 {
-    public partial class App : PrismApplication
+    public partial class App
     {
         public App(IPlatformInitializer initializer = null) : base(initializer) { }
 

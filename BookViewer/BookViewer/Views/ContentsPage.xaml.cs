@@ -1,8 +1,6 @@
-﻿using Xamarin.Forms;
-
-namespace BookViewer.Views
+﻿namespace BookViewer.Views
 {
-    public partial class ContentsPage : ContentPage
+    public partial class ContentsPage
     {
         public ContentsPage()
         {

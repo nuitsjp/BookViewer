@@ -14,6 +14,7 @@
     <ListView ItemsSource="{Binding Chapters}" SelectedItem="{Binding CurrentChapter.Value, Mode=TwoWay}">
       <ListView.ItemTemplate>
         <DataTemplate>
+            <!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
           <TextCell Text="{Binding Title}"/>
         </DataTemplate>
       </ListView.ItemTemplate>

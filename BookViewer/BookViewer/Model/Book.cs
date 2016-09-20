@@ -16,6 +16,7 @@ namespace BookViewer.Model
             {
                 if (SetProperty(ref _currentChapter, value))
                 {
+                    // Chapterを移動した場合、そのChapterの先頭ページをカレントページに設定する
                     CurrentPage = _currentChapter.Pages.First();
                 }
             }
@@ -27,9 +28,10 @@ namespace BookViewer.Model
             private set { SetProperty(ref _currentPage, value); }
         }
 
-        public IList<IChapter> Chapters { get; } = new List<IChapter>();
+        public IList<IChapter> Chapters { get; }
         public Book()
         {
+            Chapters = new List<IChapter>();
             for (int i = 0; i < 20; i++)
             {
                 Chapters.Add(new Chapter(i + 1));

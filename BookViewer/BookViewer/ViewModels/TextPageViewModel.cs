@@ -1,8 +1,5 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Input;
 using BookViewer.Model;
 using Reactive.Bindings;
@@ -12,8 +9,7 @@ namespace BookViewer.ViewModels
 {
     public class TextPageViewModel : BindableBase
     {
-        public string Test { get; } = "test";
-        private IBook _book;
+        private readonly IBook _book;
         public ReactiveProperty<IPage> CurrentPage { get; }
         public ICommand NextPageCommand { get; }
         public ICommand PreviousPageCommand { get; }

@@ -11,7 +11,7 @@ namespace BookViewer.Views.Interactive
     public class EventToCommandBehavior : BindableBehavior<VisualElement>
     {
         #region Command BindableProperty
-        public static readonly BindableProperty CommandProperty = BindableProperty.Create<EventToCommandBehavior, ICommand>(p => p.Command, null);
+        public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand), typeof(EventToCommandBehavior));
         public ICommand Command
         {
             get { return (ICommand)GetValue(CommandProperty); }
@@ -20,7 +20,7 @@ namespace BookViewer.Views.Interactive
         #endregion
 
         #region CommandParameter BindableProperty
-        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<EventToCommandBehavior, object>(p => p.CommandParameter, null);
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create(nameof(CommandParameter), typeof(object), typeof(EventToCommandBehavior));
         public object CommandParameter
         {
             get { return GetValue(CommandParameterProperty); }
@@ -29,7 +29,7 @@ namespace BookViewer.Views.Interactive
         #endregion
 
         #region Converter BindableProperty
-        public static readonly BindableProperty ConverterProperty = BindableProperty.Create<EventToCommandBehavior, IValueConverter>(p => p.Converter, null);
+        public static readonly BindableProperty ConverterProperty = BindableProperty.Create(nameof(Converter), typeof(IValueConverter), typeof(EventToCommandBehavior));
         public IValueConverter Converter
         {
             get { return (IValueConverter)GetValue(ConverterProperty); }
@@ -44,11 +44,11 @@ namespace BookViewer.Views.Interactive
         /// <summary>
         /// アタッチしているオブジェクトのEventNameと一致する名称のEventInfo
         /// </summary>
-        EventInfo eventInfo;
+        private EventInfo _eventInfo;
         /// <summary>
         /// アタッチしているオブジェクトの対象のイベントを購読するイベントハンドラ
         /// </summary>
-        Delegate eventHandler;
+        private Delegate _eventHandler;
 
         /// <summary>
         /// アタッチ時に、対象のイベントの購読設定を行う
@@ -64,14 +64,14 @@ namespace BookViewer.Views.Interactive
             }
 
             // 指定された名称のイベントが存在しない場合、例外をスローする
-            eventInfo = AssociatedObject.GetType().GetRuntimeEvent(EventName);
-            if (eventInfo == null)
+            _eventInfo = AssociatedObject.GetType().GetRuntimeEvent(EventName);
+            if (_eventInfo == null)
                 throw new ArgumentException($"EventToCommandBehavior: Can't register the '{EventName}' event.");
 
             // OnEventメソッドでイベントを購読するため、MethodInfoからデリゲートを作成しイベントへ追加する
             MethodInfo methodInfo = typeof(EventToCommandBehavior).GetTypeInfo().GetDeclaredMethod("OnEvent");
-            eventHandler = methodInfo.CreateDelegate(eventInfo.EventHandlerType, this);
-            eventInfo.AddEventHandler(AssociatedObject, eventHandler);
+            _eventHandler = methodInfo.CreateDelegate(_eventInfo.EventHandlerType, this);
+            _eventInfo.AddEventHandler(AssociatedObject, _eventHandler);
         }
 
         /// <summary>
@@ -80,8 +80,8 @@ namespace BookViewer.Views.Interactive
         /// <param name="bindable"></param>
         protected override void OnDetachingFrom(VisualElement bindable)
         {
-            if (eventInfo != null && eventHandler != null)
-                eventInfo.RemoveEventHandler(AssociatedObject, eventHandler);
+            if (_eventInfo != null && _eventHandler != null)
+                _eventInfo.RemoveEventHandler(AssociatedObject, _eventHandler);
 
             base.OnDetachingFrom(bindable);
         }
@@ -91,7 +91,9 @@ namespace BookViewer.Views.Interactive
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="eventArgs"></param>
-        void OnEvent(object sender, object eventArgs)
+        // ReSharper disable once UnusedParameter.Local
+        // ReSharper disable once UnusedMember.Local
+        private void OnEvent(object sender, object eventArgs)
         {
             // コマンドがバインドされていない場合、何もしない
             if (Command == null)
