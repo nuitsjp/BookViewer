@@ -12,6 +12,7 @@ namespace BookViewer.Model
         IChapter CurrentChapter { get; set; }
         IPage CurrentPage { get; }
         IList<IChapter> Chapters { get; }
+        void Open();
         void GoToNextPage();
         void GoToPreviousPage();
     }

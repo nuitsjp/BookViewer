@@ -36,67 +36,55 @@ namespace BookViewer.Model
             }
         }
 
+        public void Open()
+        {
+            CurrentChapter = Chapters.First();
+            CurrentPage = CurrentChapter.Pages.First();
+        }
+
         public void GoToNextPage()
         {
-            if (CurrentPage == null)
+            if (CurrentPage == CurrentChapter.Pages.Last())
             {
-                // 先頭ページへ
-                CurrentChapter = Chapters.First();
-                CurrentPage = CurrentChapter.Pages.First();
-            }
-            else
-            {
-                if (CurrentPage == CurrentChapter.Pages.Last())
+                // 同一Chapter内の最後のページの場合
+                if (CurrentChapter == Chapters.Last())
                 {
-                    // 同一Chapter内の最後のページの場合
-                    if (CurrentChapter == Chapters.Last())
-                    {
-                        // 最後のChapterであれば何もしない
-                    }
-                    else
-                    {
-                        // 次のChapterの最初のページへ
-                        CurrentChapter = Chapters[Chapters.IndexOf(CurrentChapter) + 1];
-                        CurrentPage = CurrentChapter.Pages.First();
-                    }
+                    // 最後のChapterであれば何もしない
                 }
                 else
                 {
-                    // 同一Chapter内で１ページ進める
-                    CurrentPage = CurrentChapter.Pages[CurrentChapter.Pages.IndexOf(CurrentPage) + 1];
+                    // 次のChapterの最初のページへ
+                    CurrentChapter = Chapters[Chapters.IndexOf(CurrentChapter) + 1];
+                    CurrentPage = CurrentChapter.Pages.First();
                 }
+            }
+            else
+            {
+                // 同一Chapter内で１ページ進める
+                CurrentPage = CurrentChapter.Pages[CurrentChapter.Pages.IndexOf(CurrentPage) + 1];
             }
         }
 
         public void GoToPreviousPage()
         {
-            if (CurrentPage == null)
+            if (CurrentPage == CurrentChapter.Pages.First())
             {
-                // 先頭ページへ
-                CurrentChapter = Chapters.First();
-                CurrentPage = CurrentChapter.Pages.First();
-            }
-            else
-            {
-                if (CurrentPage == CurrentChapter.Pages.First())
+                // 同一Chapter内の最初のページの場合
+                if (CurrentChapter == Chapters.First())
                 {
-                    // 同一Chapter内の最初のページの場合
-                    if (CurrentChapter == Chapters.First())
-                    {
-                        // 最初のChapterであれば何もしない
-                    }
-                    else
-                    {
-                        // 前のChapterの最後のページへ
-                        CurrentChapter = Chapters[Chapters.IndexOf(CurrentChapter) - 1];
-                        CurrentPage = CurrentChapter.Pages.Last();
-                    }
+                    // 最初のChapterであれば何もしない
                 }
                 else
                 {
-                    // 同一Chapter内で１ページ進める
-                    CurrentPage = CurrentChapter.Pages[CurrentChapter.Pages.IndexOf(CurrentPage) - 1];
+                    // 前のChapterの最後のページへ
+                    CurrentChapter = Chapters[Chapters.IndexOf(CurrentChapter) - 1];
+                    CurrentPage = CurrentChapter.Pages.Last();
                 }
+            }
+            else
+            {
+                // 同一Chapter内で１ページ進める
+                CurrentPage = CurrentChapter.Pages[CurrentChapter.Pages.IndexOf(CurrentPage) - 1];
             }
         }
     }

@@ -48,6 +48,8 @@
     <Compile Include="Views\ContentsPage.xaml.cs">
       <DependentUpon>ContentsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Interactive\BindableBehavior.cs" />
+    <Compile Include="Views\Interactive\EventToCommandBehavior.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
