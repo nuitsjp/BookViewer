@@ -3,7 +3,7 @@ using Prism.Mvvm;
 
 namespace BookViewer.Model
 {
-    public class Chapter : BindableBase, IChapter
+    public class Chapter : IChapter
     {
         public string Title { get; }
         public IList<IPage> Pages { get; }
