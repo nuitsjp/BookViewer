@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Prism.Mvvm;
 
-namespace BookViewer.Model
+namespace BookViewer.Models
 {
     public class Chapter : IChapter
     {

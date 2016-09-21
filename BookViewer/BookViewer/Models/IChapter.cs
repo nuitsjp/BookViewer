@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 
-namespace BookViewer.Model
+namespace BookViewer.Models
 {
     public interface IChapter
     {

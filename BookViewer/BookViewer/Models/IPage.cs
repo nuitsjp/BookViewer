@@ -1,4 +1,4 @@
-﻿namespace BookViewer.Model
+﻿namespace BookViewer.Models
 {
     public interface IPage
     {

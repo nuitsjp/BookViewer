@@ -3,7 +3,7 @@ using Prism.Mvvm;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
-using BookViewer.Model;
+using BookViewer.Models;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
 

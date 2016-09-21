@@ -1,9 +1,8 @@
-﻿using Prism.Mvvm;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Linq;
+using Prism.Mvvm;
 
-namespace BookViewer.Model
+namespace BookViewer.Models
 {
     public class Book : BindableBase, IBook
     {

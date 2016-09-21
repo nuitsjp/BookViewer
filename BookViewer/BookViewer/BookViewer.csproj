@@ -35,12 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Model\Book.cs" />
-    <Compile Include="Model\Chapter.cs" />
-    <Compile Include="Model\IBook.cs" />
-    <Compile Include="Model\IChapter.cs" />
-    <Compile Include="Model\IPage.cs" />
-    <Compile Include="Model\Page.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Chapter.cs" />
+    <Compile Include="Models\IBook.cs" />
+    <Compile Include="Models\IChapter.cs" />
+    <Compile Include="Models\IPage.cs" />
+    <Compile Include="Models\Page.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ContentsPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />

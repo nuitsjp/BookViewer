@@ -1,4 +1,4 @@
-﻿using BookViewer.Model;
+﻿using BookViewer.Models;
 using Prism.Unity;
 using BookViewer.Views;
 using Microsoft.Practices.Unity;

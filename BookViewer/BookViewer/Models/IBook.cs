@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace BookViewer.Model
+namespace BookViewer.Models
 {
     public interface IBook : INotifyPropertyChanged
     {
