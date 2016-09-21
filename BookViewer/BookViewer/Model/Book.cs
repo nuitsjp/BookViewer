@@ -1,5 +1,6 @@
 ﻿using Prism.Mvvm;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace BookViewer.Model
@@ -28,18 +29,19 @@ namespace BookViewer.Model
             private set { SetProperty(ref _currentPage, value); }
         }
 
-        public IList<IChapter> Chapters { get; }
+        private readonly ObservableCollection<IChapter> _chapters = new ObservableCollection<IChapter>();
+        public ReadOnlyObservableCollection<IChapter> Chapters { get; }
         public Book()
         {
-            Chapters = new List<IChapter>();
-            for (int i = 0; i < 20; i++)
-            {
-                Chapters.Add(new Chapter(i + 1));
-            }
+            Chapters = new ReadOnlyObservableCollection<IChapter>(_chapters);
         }
 
         public void Open()
         {
+            for (int i = 0; i < 20; i++)
+            {
+                _chapters.Add(new Chapter(i + 1));
+            }
             CurrentChapter = Chapters.First();
             CurrentPage = CurrentChapter.Pages.First();
         }

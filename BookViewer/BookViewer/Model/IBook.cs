@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace BookViewer.Model
@@ -7,7 +8,7 @@ namespace BookViewer.Model
     {
         IChapter CurrentChapter { get; set; }
         IPage CurrentPage { get; }
-        IList<IChapter> Chapters { get; }
+        ReadOnlyObservableCollection<IChapter> Chapters { get; }
         void Open();
         void GoToNextPage();
         void GoToPreviousPage();
