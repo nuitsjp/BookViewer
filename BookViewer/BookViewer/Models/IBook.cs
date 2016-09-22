@@ -7,9 +7,11 @@ namespace BookViewer.Models
     {
         IChapter CurrentChapter { get; set; }
         IPage CurrentPage { get; }
+        bool HasNext { get; }
+        bool HasPrevious { get; }
         ReadOnlyObservableCollection<IChapter> Chapters { get; }
         void Open();
-        void GoToNextPage();
-        void GoToPreviousPage();
+        void GoNext();
+        void GoBack();
     }
 }

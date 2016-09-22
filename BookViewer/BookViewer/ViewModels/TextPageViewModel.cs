@@ -17,8 +17,8 @@ namespace BookViewer.ViewModels
         {
             _book = book;
             CurrentPage = _book.ObserveProperty(b => b.CurrentPage).ToReactiveProperty();
-            NextPageCommand = new DelegateCommand(() => _book.GoToNextPage());
-            PreviousPageCommand = new DelegateCommand(() => _book.GoToPreviousPage());
+            NextPageCommand = new DelegateCommand(() => _book.GoNext());
+            PreviousPageCommand = new DelegateCommand(() => _book.GoBack());
         }
     }
 }
