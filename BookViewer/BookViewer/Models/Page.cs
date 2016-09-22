@@ -2,7 +2,7 @@
 
 namespace BookViewer.Models
 {
-    public class Page : BindableBase, IPage
+    public class Page : IPage
     {
         public int ChapterNo { get; }
         public int PageNo { get; }
