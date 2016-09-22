@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using Prism.Commands;
 using Prism.Mvvm;
-using System.Windows.Input;
 using BookViewer.Models;
 using Reactive.Bindings;
 using Reactive.Bindings.Extensions;
