@@ -2,14 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             xmlns:interactive="clr-namespace:BookViewer.Views.Interactive;assembly=BookViewer"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="BookViewer.Views.ContentsPage"
              Padding="0,40,0,0"
              Title="Contents">
-  <ContentPage.Behaviors>
-    <interactive:EventToCommandBehavior EventName="Appearing" Command="{Binding OpenCommand}"/>
-  </ContentPage.Behaviors>
   <Grid>
     <ListView ItemsSource="{Binding Chapters}" SelectedItem="{Binding CurrentChapter.Value, Mode=TwoWay}">
       <ListView.ItemTemplate>

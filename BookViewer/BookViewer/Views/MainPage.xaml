@@ -3,8 +3,12 @@
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
                   xmlns:views="clr-namespace:BookViewer.Views;assembly=BookViewer"
+                  xmlns:interactive="clr-namespace:BookViewer.Views.Interactive;assembly=BookViewer"
                   prism:ViewModelLocator.AutowireViewModel="True"
                   x:Class="BookViewer.Views.MainPage">
+  <MasterDetailPage.Behaviors>
+    <interactive:EventToCommandBehavior EventName="Appearing" Command="{Binding OpenCommand}"/>
+  </MasterDetailPage.Behaviors>
   <MasterDetailPage.Master>
     <views:ContentsPage/>
   </MasterDetailPage.Master>

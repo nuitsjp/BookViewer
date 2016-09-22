@@ -17,8 +17,8 @@
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="Auto"/>
       </Grid.ColumnDefinitions>
-      <Button Text="前へ" Command="{Binding PreviousPageCommand}"/>
-      <Button Grid.Column="2" Text="次へ" Command="{Binding NextPageCommand}"/>
+      <Button Text="前へ" Command="{Binding GoBackCommand}"/>
+      <Button Grid.Column="2" Text="次へ" Command="{Binding GoNextCommand}"/>
     </Grid>
   </Grid>
 </ContentPage>
